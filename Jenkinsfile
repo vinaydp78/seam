@@ -13,12 +13,12 @@ pipeline{
         }
         stage("TF Plan"){
             steps{
-                //sh "terraform plan"
+                echo "tf plan"
             }
         }
         stage("TF Apply"){
             steps{
-               //sh "terraform apply --auto-approve"
+               echo "tf apply"
             }
         }
         stage("Invoke Lambda"){
