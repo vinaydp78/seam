@@ -11,7 +11,7 @@ resource "aws_vpc" "my_vpc" {
 
 # Create private subnet
 resource "aws_subnet" "private_subnet" {
-  vpc_id            = "vpc-0de2bfe0f5fc540e0"
+  vpc_id            = aws_vpc.my_vpc.id
   cidr_block        = "10.0.1.0/24"
   #availability_zone = "eu-west-1" # replace with the AZ you want to use
 }
