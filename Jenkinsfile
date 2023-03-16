@@ -13,7 +13,7 @@ pipeline{
         }
         stage("TF Plan"){
             steps{
-                echo "tf plan"
+                sh "terraform plan"
             }
         }
         stage("TF Apply"){
