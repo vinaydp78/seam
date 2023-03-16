@@ -18,13 +18,13 @@ resource "aws_subnet" "private_subnet" {
 
 # Create routing table
 resource "aws_route_table" "private_route_table" {
-  vpc_id = [aws_vpc.my_vpc.id]
+  vpc_id = aws_vpc.my_vpc.id
 
   route {
     cidr_block = "0.0.0.0/0"
     # Replace with the ID of the NAT Gateway that you want to use
     # to allow traffic to reach the internet
-    nat_gateway_id = [aws_nat_gateway.my_nat_gateway.id]
+    nat_gateway_id = aws_nat_gateway.my_nat_gateway.id
   }
 
   tags = {
@@ -37,7 +37,7 @@ resource "aws_lambda_function" "my_lambda_function_1" {
   function_name = "my-lambda-function"
   handler = "index.handler"
   runtime = "nodejs14.x"
-  role = [aws_iam_role.lambda_execution_role.arn]
+  role = aws_iam_role.lambda_execution_role.arn
   # replace with your lambda function code
   filename = "api_vinay.zip"
 
@@ -93,7 +93,7 @@ resource "aws_iam_role" "lambda_execution_role" {
 # Create NAT Gateway
 resource "aws_nat_gateway" "my_nat_gateway" {
   allocation_id = aws_eip.my_eip.id
-  subnet_id     = [aws_subnet.public_subnet.id]
+  subnet_id     = aws_subnet.public_subnet.id
 }
 
 
