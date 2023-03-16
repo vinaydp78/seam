@@ -18,7 +18,7 @@ pipeline{
         }
         stage("TF Apply"){
             steps{
-               echo "tf apply"
+               sh "terraform apply"
             }
         }
         stage("Invoke Lambda"){
