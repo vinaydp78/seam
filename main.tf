@@ -43,7 +43,7 @@ resource "aws_lambda_function" "my_lambda_function_1" {
 
   vpc_config {
     security_group_ids = [aws_security_group.my_security_group.id]
-    subnet_ids         = [aws_subnet.private_subnet.id]
+    subnet_ids         = [aws_subnet.public_subnet.id]
   }
 }
 
