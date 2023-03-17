@@ -95,9 +95,14 @@ resource "aws_nat_gateway" "my_nat_gateway" {
   allocation_id = aws_eip.example.id
   subnet_id     = aws_subnet.private_subnet.id
 }
+data "" "name" {
+  
+}
+
 
 resource "aws_instance" "example" {
-  ami           = "ami-0557a15b87f6559cf"
+  # ami           = "ami-0557a15b87f6559cf"
+  ami = data.aws_ami.example.id
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.private_subnet.id
   associate_public_ip_address = true
@@ -129,3 +134,6 @@ resource "aws_internet_gateway" "example" {
 }
 
 
+data "aws_ami" "example" {
+  
+}
