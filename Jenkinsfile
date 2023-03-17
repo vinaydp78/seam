@@ -25,7 +25,10 @@ pipeline{
             steps{
                echo "lambda"
                //sh "aws lambda invoke  --function-name my-lambda-function"
+                echo '{ "tagKey"':'"'"${tagKey}"'"', '"tagValue"':'"'"${tagValue}"'"', '"region"':'"'"${region}"'"' }' > json.json
+                sh "aws lambda invoke --function-name my-lambda-function  --cli-binary-format raw-in-base64-out --payload file://json.json
             }
         }
     }
 }
+'
