@@ -23,7 +23,8 @@ pipeline{
         }
         stage("Invoke Lambda"){
             steps{
-               sh "aws lambda invoke  --function-name my-lambda-function"
+               echo "lambda"
+               #sh "aws lambda invoke  --function-name my-lambda-function"
             }
         }
     }
