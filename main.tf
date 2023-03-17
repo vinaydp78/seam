@@ -98,10 +98,10 @@ resource "aws_nat_gateway" "my_nat_gateway" {
 
 
 
-resource "aws_internet_gateway" "example" {
-  vpc_id = aws_vpc.my_vpc.id
+#resource "aws_internet_gateway" "example" {
+#  vpc_id = aws_vpc.my_vpc.id
 
-  tags = {
-    Name = "vinay"
-  }
-}
+  #tags = {
+   # Name = "vinay"
+  #}
+#}
