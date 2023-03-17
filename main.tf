@@ -115,7 +115,16 @@ resource "aws_eip_association" "example" {
 resource "aws_eip" "example" {
   vpc      = true
   tags = {
-    Name = "example-eip"
+    Name = "vinay"
+  }
+}
+
+
+resource "aws_internet_gateway" "example" {
+  vpc_id = aws_vpc.my_vpc.id
+
+  tags = {
+    Name = "vinay"
   }
 }
 
