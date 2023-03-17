@@ -65,9 +65,9 @@ resource "aws_security_group" "my_security_group" {
 }
 
 # Attach security group to Lambda function
-resource "aws_lambda_function" "my_lambda_function" {
-  security_group_ids = aws_security_group.my_security_group.id
-}
+#resource "aws_lambda_function" "my_lambda_function" {
+  #security_group_ids = aws_security_group.my_security_group.id
+#}
 
 # Create IAM role for Lambda function
 resource "aws_iam_role" "lambda_execution_role" {
