@@ -36,7 +36,7 @@ resource "aws_route_table" "private_route_table" {
 resource "aws_lambda_function" "my_lambda_function" {
   function_name = "my-lambda-function"
   handler = "index.handler"
-  runtime = "python38"
+  runtime = "nodejs14.x"
   role = aws_iam_role.lambda_execution_role.arn
   # replace with your lambda function code
   filename = "api_vinay.zip"
