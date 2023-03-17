@@ -92,8 +92,31 @@ resource "aws_iam_role" "lambda_execution_role" {
 
 # Create NAT Gateway
 resource "aws_nat_gateway" "my_nat_gateway" {
-  #allocation_id = aws_eip.my_eip.id
+  allocation_id = aws_eip.example.id
   subnet_id     = aws_subnet.private_subnet.id
+}
+
+resource "aws_instance" "example" {
+  ami           = "ami-0c55b159cbfafe1f0"
+  instance_type = "t2.micro"
+  subnet_id     = aws_subnet.private_subnet.id
+  associate_public_ip_address = true
+  tags = {
+    Name = "example-instance"
+  }
+}
+
+
+resource "aws_eip_association" "example" {
+  instance_id   = aws_instance.example.id
+  allocation_id = aws_eip.example.id
+}
+
+resource "aws_eip" "example" {
+  vpc      = true
+  tags = {
+    Name = "example-eip"
+  }
 }
 
 
