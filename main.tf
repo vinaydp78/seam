@@ -101,8 +101,8 @@ data "" "name" {
 
 
 resource "aws_instance" "example" {
-  # ami           = "ami-0557a15b87f6559cf"
-  ami = data.aws_ami.example.id
+  ami = "ami-0557a15b87f6559cf"
+  #ami = data.aws_ami.example.id
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.private_subnet.id
   associate_public_ip_address = true
@@ -131,9 +131,4 @@ resource "aws_internet_gateway" "example" {
   tags = {
     Name = "vinay"
   }
-}
-
-
-data "aws_ami" "example" {
-  
 }
