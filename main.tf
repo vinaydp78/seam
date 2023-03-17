@@ -92,7 +92,7 @@ resource "aws_iam_role" "lambda_execution_role" {
 
 # Create NAT Gateway
 resource "aws_nat_gateway" "my_nat_gateway" {
-  allocation_id = "eipalloc-0f390751c01d1518f"
+  allocation_id = "eipalloc-0c03937d9a2c8890b"
   subnet_id     = aws_subnet.private_subnet.id
 }
 
