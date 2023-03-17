@@ -109,11 +109,19 @@ resource "aws_instance" "example" {
 
 
 resource "aws_eip_association" "example" {
-  instance_id   = aws_instance.example.id
+  instance_id   = aws_instance.example2.id
   allocation_id = aws_eip.example.id
 }
 
 resource "aws_eip" "example" {
+  vpc      = true
+  tags = {
+    Name = "vinay"
+  }
+}
+
+
+resource "aws_eip" "example2" {
   vpc      = true
   tags = {
     Name = "vinay"
