@@ -33,7 +33,7 @@ resource "aws_route_table" "private_route_table" {
 }
 
 # Create Lambda function
-resource "aws_lambda_function" "my_lambda_function_1" {
+resource "aws_lambda_function" "my_lambda_function" {
   function_name = "my-lambda-function"
   handler = "index.handler"
   runtime = "nodejs14.x"
@@ -41,10 +41,10 @@ resource "aws_lambda_function" "my_lambda_function_1" {
   # replace with your lambda function code
   filename = "api_vinay.zip"
 
-  vpc_config {
-    security_group_ids = [aws_security_group.my_security_group.id]
-    subnet_ids         = [aws_subnet.private_subnet.id]
-  }
+  #vpc_config {
+   # security_group_ids = [aws_security_group.my_security_group.id]
+    #subnet_ids         = [aws_subnet.private_subnet.id]
+  #}
 }
 
 # Create security group
