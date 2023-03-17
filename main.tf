@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "eu-west-1"  # replace with the region you want to use
+  region = "us-west-1"  # replace with the region you want to use
 }
 
 
@@ -97,7 +97,7 @@ resource "aws_nat_gateway" "my_nat_gateway" {
 }
 
 resource "aws_instance" "example" {
-  ami = "ami-005f9685cb30f234b"
+  ami = "ami-0925fd223898ee5ba"
   #ami = data.aws_ami.example.id
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.private_subnet.id
